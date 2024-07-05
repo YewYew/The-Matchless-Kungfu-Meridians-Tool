@@ -70,3 +70,10 @@ You, as the tool user, need to determine if the results are truly optimal.
 ## Requirements:
 1. [Python (3.12.4 or Latest, probably)](https://www.python.org/downloads/ "Python Homepage")
 
+---
+
+### See also:
+* [AlienAtSystem's Kungfu Meridians Tool](https://github.com/AlienAtSystem/KungfuMeridians)
+  * Can do multiple paths and "double-up" or meridians.
+  * The issues with its method are outlined in its readme.
+  * Unaware of this tool when I made mine; they serve different uses anyway.
