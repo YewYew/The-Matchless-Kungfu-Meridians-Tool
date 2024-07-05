@@ -16,19 +16,12 @@
 # You can make the pattern symbols whatever you want as long as you're consistent.
 
 skills = {
-    "Art of Five Senses": "OSTOOT",
+    "Demo Slayer Arhat": "TTSSOO",
     "Heart-burning Spell": "SST",
-    "Yi Jin Jing": "OTSOTS",
-    "Drunken Immortal": "OSTOTT",
-    "Bionic Pentaform": "TSOST",
-    "Art of Harmony": "TSOTS",
-    "Breathing Skill": "OTS",
-    "Art of Drunkness": "OTT",
-    "Dragonform": "OSTSOS",
 }
 
 #This is how many Meridians you have, determines maximum length of a pattern combo.
-meridians_count = 18
+meridians_count = 8
 
 ###########################
 #### CODE BEGINS HERE. ####
