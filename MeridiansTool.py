@@ -13,11 +13,11 @@
 # O is a circle meridian.
 # T is a triangle meridian.
 # S is a square meridian.
-# You can make the pattern symbols whatever you want as long as you're consistent.
+# You can make the pattern symbols whatever you want as long as you're consistent between all entries.
 
 skills = {
-    "Demo Slayer Arhat": "TTSSOO",
-    "Heart-burning Spell": "SST",
+    "Bionic Pentaform": "TSOST",
+    "Beastmaster": "SOS",
 }
 
 #This is how many Meridians you have, determines maximum length of a pattern combo.
@@ -31,26 +31,32 @@ meridians_count = 8
 
 # Esoteric code which concatinates and/or overlaps the patterns.
 def concatenate_with_overlap(str1, str2):
-	max_overlap = min(len(str1), len(str2))
-	# Check normal (str1 + str2)
-	for i in range(max_overlap, 0, -1):
-		if str1[-i:] == str2[:i]:
-			normal_concat = str1 + str2[i:]
-			break
+	#If it is completely within the other, such as TSOST and SOS.
+	if str2 in str1:
+		return str1
+	elif str1 in str2:
+		return str2
 	else:
-		normal_concat = str1 + str2
-	# Check reversed (str2 + str1)
-	for i in range(max_overlap, 0, -1):
-		if str2[-i:] == str1[:i]:
-			reverse_concat = str2 + str1[i:]
-			break
-	else:
-		reverse_concat = str2 + str1
-	# Return the shorter concatenation.
-	if len(normal_concat) <= len(reverse_concat):
-		return normal_concat
-	else:
-		return reverse_concat
+		max_overlap = min(len(str1), len(str2))
+		# Check normal (str1 + str2)
+		for i in range(max_overlap, 0, -1):
+			if str1[-i:] == str2[:i]:
+				normal_concat = str1 + str2[i:]
+				break
+		else:
+			normal_concat = str1 + str2
+		# Check reversed (str2 + str1)
+		for i in range(max_overlap, 0, -1):
+			if str2[-i:] == str1[:i]:
+				reverse_concat = str2 + str1[i:]
+				break
+		else:
+			reverse_concat = str2 + str1
+		# Return the shorter concatenation.
+		if len(normal_concat) <= len(reverse_concat):
+			return normal_concat
+		else:
+			return reverse_concat
 
 def find_maximum_concatenation(skills, meridians_count):
 	skill_patterns = list(skills.values())
