@@ -32,10 +32,25 @@ meridians_count = 8
 # Esoteric code which concatinates and/or overlaps the patterns.
 def concatenate_with_overlap(str1, str2):
 	max_overlap = min(len(str1), len(str2))
+	# Check normal (str1 + str2)
 	for i in range(max_overlap, 0, -1):
 		if str1[-i:] == str2[:i]:
-			return str1 + str2[i:]
-	return str1 + str2
+			normal_concat = str1 + str2[i:]
+			break
+	else:
+		normal_concat = str1 + str2
+	# Check reversed (str2 + str1)
+	for i in range(max_overlap, 0, -1):
+		if str2[-i:] == str1[:i]:
+			reverse_concat = str2 + str1[i:]
+			break
+	else:
+		reverse_concat = str2 + str1
+	# Return the shorter concatenation.
+	if len(normal_concat) <= len(reverse_concat):
+		return normal_concat
+	else:
+		return reverse_concat
 
 def find_maximum_concatenation(skills, meridians_count):
 	skill_patterns = list(skills.values())
